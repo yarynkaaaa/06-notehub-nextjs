@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { Note, NoteTag } from '../../types/note';
+import type { Note, NoteTag } from '../types/note';
 
 export interface FetchNotesParams {
     page?: number;

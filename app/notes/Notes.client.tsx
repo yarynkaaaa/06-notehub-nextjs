@@ -8,9 +8,9 @@ import NoteModal from "@/components/Modal/Modal";
 import NoteForm from "@/components/NoteForm/NoteForm";
 import Pagination from "@/components/Pagination/Pagination";
 import SearchBox from "@/components/SearchBox/SearchBox";
-import { fetchNotes } from "@/lib/api/api";
+import { fetchNotes } from "@/lib/api";
 import css from './NotesPage.module.css'
-import type { FetchNotesResponse } from "@/lib/api/api";
+import type { FetchNotesResponse } from "@/lib/api";
 import { Toaster, toast } from "react-hot-toast";
 
 const PER_PAGE = 12;

@@ -1,6 +1,6 @@
 import NotesClient from "./Notes.client";
-import { fetchNotes } from "@/lib/api/api";
-import type { FetchNotesResponse } from "@/lib/api/api";
+import { fetchNotes } from "@/lib/api";
+import type { FetchNotesResponse } from "@/lib/api";
 
 export default async function NotesPage() {
   let initialData: FetchNotesResponse;
