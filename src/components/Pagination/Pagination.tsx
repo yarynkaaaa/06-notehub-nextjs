@@ -2,14 +2,18 @@ import ReactPaginate from "react-paginate";
 import css from "./Pagination.module.css";
 
 interface PaginationProps {
-  page: number;          
-  pageCount: number;    
+  page: number;
+  pageCount: number;
   setPage: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ page, pageCount, setPage }) => {
+const Pagination: React.FC<PaginationProps> = ({
+  page,
+  pageCount,
+  setPage,
+}) => {
   const handlePageClick = (event: { selected: number }) => {
-    setPage(event.selected + 1); 
+    setPage(event.selected + 1);
   };
 
   return (
@@ -23,7 +27,7 @@ const Pagination: React.FC<PaginationProps> = ({ page, pageCount, setPage }) => 
       onPageChange={handlePageClick}
       containerClassName={css.pagination}
       activeClassName={css.active}
-      forcePage={page - 1}  
+      forcePage={page - 1}
     />
   );
 };

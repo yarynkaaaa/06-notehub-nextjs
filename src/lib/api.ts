@@ -1,12 +1,11 @@
 import axios from "axios";
-import type { Note, NoteTag } from "@/types/note"; // Залежно від вашого шляху до типів, тут може бути і відносний шлях ../../types/note
+import type { Note, NoteTag } from "@/types/note";
 
 const BASE_URL = "https://notehub-public.goit.study/api";
 
 const api = axios.create({
   baseURL: BASE_URL,
   headers: {
-    // Змінили import.meta.env на process.env для Next.js
     Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
   },
 });
@@ -35,7 +34,7 @@ interface ApiNotesResponse {
 }
 
 export const fetchNotes = async (
-  params: FetchNotesParams = {}
+  params: FetchNotesParams = {},
 ): Promise<FetchNotesResponse> => {
   const { page = 1, perPage = 12, search = "" } = params;
 
@@ -54,6 +53,10 @@ export const fetchNotes = async (
   };
 };
 
+export const fetchNoteById = async (id: string): Promise<Note> => {
+  const { data } = await api.get<Note>(`/notes/${id}`);
+  return data;
+};
 export const createNote = async (noteData: CreateNoteParams): Promise<Note> => {
   const response = await api.post<Note>("/notes", noteData);
   return response.data;
